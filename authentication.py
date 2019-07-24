@@ -12,6 +12,17 @@ resp=requests.get('https://api.github.com/user',auth=('username',getpass()))
 json_resp = resp.json()
 #json with user details
 
+######################################################### Http proxy auhentication
+from requests.auth import HTTPProxyAuth
+
+proxyDict = { 
+          'http'  : '77.75.105.165', 
+          'https' : '77.75.105.165'
+        }
+auth = HTTPProxyAuth('username', 'mypassword')
+
+response = requests.get("http://www.google.com", proxies=proxyDict, auth=auth)
+
 
 
 
